@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asterooid", "Asterooid\Asterooid.csproj", "{C034B5FD-0CB8-4FEA-A0E9-6DBBE2312873}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B4BC6922-E99F-426F-B38F-DA98B960DE1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "Tests\TestConsole\TestConsole.csproj", "{32736F03-2B34-42FE-8B7E-2574FEBDAEA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{C034B5FD-0CB8-4FEA-A0E9-6DBBE2312873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C034B5FD-0CB8-4FEA-A0E9-6DBBE2312873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C034B5FD-0CB8-4FEA-A0E9-6DBBE2312873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32736F03-2B34-42FE-8B7E-2574FEBDAEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32736F03-2B34-42FE-8B7E-2574FEBDAEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32736F03-2B34-42FE-8B7E-2574FEBDAEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32736F03-2B34-42FE-8B7E-2574FEBDAEA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{32736F03-2B34-42FE-8B7E-2574FEBDAEA1} = {B4BC6922-E99F-426F-B38F-DA98B960DE1E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7AEEB40E-D967-416E-BF41-2403D67674B6}
