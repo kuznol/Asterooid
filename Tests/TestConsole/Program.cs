@@ -18,8 +18,8 @@ namespace TestConsole
             for(var i=0; i < gamers.Length; i++)
             {
                 var g = new Gamer();
-                g.Name = $"Gamer {i + 1}";
-                g.DayOfBirth = DateTime.Now;
+                g.Name = string.Format("Gamer{0}", i + 1);
+                g.DayOfBirth = DateTime.Now.Subtract(TimeSpan.FromDays(365 * (i + 18))) ;
                 gamers[i] = g;
 
             }
