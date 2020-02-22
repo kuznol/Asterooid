@@ -23,7 +23,13 @@ namespace Asterooid
             form.Width = 800;
             form.Height = 600;
 
+            form.Show();
+
             Game.Initialize(form);
+          
+            Game.Draw();
+
+
 
             Application.Run(form);
         }
