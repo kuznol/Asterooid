@@ -10,29 +10,73 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Gamer gamer = new Gamer();
-            gamer.Name = "Игрок 1";
-            gamer.DayOfBirth = new DateTime(1983, 12, 5, 12, 23, 17);
+            Printer printer = new Printer();
 
-            Gamer[] gamers = new Gamer[100];
-            for(var i=0; i < gamers.Length; i++)
-            {
-                var g = new Gamer();
-                g.Name = string.Format("Gamer{0}", i + 1);
-                g.DayOfBirth = DateTime.Now.Subtract(TimeSpan.FromDays(365 * (i + 18))) ;
-                gamers[i] = g;
+            printer.Print("Hello World!");
 
-            }
+            printer = new PrefixPrinter(">>>>>");
+
+            printer.Print("Hello World!");
+
+            printer = new DateTimeLogPrinter();
+            printer.Print("Hello World!");
+
 
             Console.ReadLine();
-
         }
     }
 
-    class Gamer
+    class Printer
     {
-      public string Name;
-        public DateTime DayOfBirth;
+        public Printer()
+        {
+
+        }
+
+        public virtual void Print(string str)
+        {
+            Console.WriteLine(str);
+        }
+    }
+
+    class PrefixPrinter : Printer
+    {
+        private string _Prefix;
+
+        public PrefixPrinter(string Prefix)
+        {
+            _Prefix = Prefix;
+        }
+        //public PrefixPrinter(string Prefix) { _Prefix = Prefix; }
+
+        public override void Print(string str)
+        {
+            //Console.WriteLine("{0}{1}", _Prefix, str);
+            base.Print(_Prefix + str);
+        }
+    }
+
+    class DateTimeLogPrinter : Printer
+    {
+        public override void Print(string str)
+        {
+            Console.Write(DateTime.Now);
+            Console.Write(">>");
+            base.Print(str);
+        }
+    }
+
+    class FilePrinter : Printer
+    {
+        private string _FileName;
+
+        public FilePrinter(string FileName) => _FileName = FileName;
+
+        public override void Print(string str)
+        {
+            System.IO.File.AppendAllText(_FileName, str);
+
+        }
 
     }
 }
