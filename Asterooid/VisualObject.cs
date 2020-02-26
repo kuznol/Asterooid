@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Asterooid
 {
-    class VisualObject
+    public abstract class VisualObject
     {
         protected Point _Position;
         protected Point _Direction;
@@ -20,8 +20,12 @@ namespace Asterooid
             _Direction = Direction;
             _Size = Size;
         }
-        public abstract void Draw(Graphics g);
-
+        public virtual void Draw(Graphics g)
+        {
+            g.DrawEllipse(Pens.Red,
+                _Position.X, _Position.Y,
+                _Size.Width, _Size.Width);
+        }
         public virtual void Update()
         {
             _Position = new Point(
@@ -31,12 +35,12 @@ namespace Asterooid
             if (_Position.X < 0)            
                 _Direction = new Point(-_Direction.X, _Direction.Y);
             if (_Position.Y < 0)
-                _Direction = new Point(_Direction.X, -_Direction.Y);
+                _Direction = new Point(_Direction.X, _Direction.Y);
 
             if (_Position.X > Game.Width)
-                _Direction = new Point(-_Direction.X, _Direction.Y);
+                _Direction = new Point(_Direction.X, _Direction.Y);
             if (_Position.Y > Game.Height)
-                _Direction = new Point(_Direction.X, -_Direction.Y);
+                _Direction = new Point(_Direction.X, _Direction.Y);
         }
     }
 
