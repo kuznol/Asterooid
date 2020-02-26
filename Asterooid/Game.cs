@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Asterooid.VisualObject;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
 
 namespace Asterooid
 {
@@ -32,7 +36,7 @@ namespace Asterooid
             __Buffer = __Context.Allocate(g, new Rectangle(0, 0, Width, Height));
 
 
-            var timer = new Timer { Interval = __FrameTimeout };
+            var timer = new Timer { Interval = 100 };
             timer.Tick += OnTimerTick;
             timer.Start();
         }
@@ -53,11 +57,11 @@ namespace Asterooid
                     new Point(15 - i, 20 - i),
                     new Size(20, 20));
 
-          
+
             for (var i = __GameObjects.Length / 2; i < __GameObjects.Length; i++)
                 __GameObjects[i] = new Star(
                     new Point(600, i * 20),
-                    new Point(15 - i, 20 - i),
+                    new Point(- i, 0),
                     20);
         }
                 
@@ -66,7 +70,7 @@ namespace Asterooid
         public static void Draw()
         {
             var g = __Buffer.Graphics;
-            g.Clear(Color.DarkSlateBlue);
+            g.Clear(Color.Black);
 
             //g.DrawRectangle(Pens.White, new Rectangle(50, 50, 200, 200));
             //g.FillEllipse(Brushes.Red, new Rectangle(100, 50, 70, 120));
@@ -80,8 +84,10 @@ namespace Asterooid
         }
         public static void Update()
         {
-            foreach (var visual_object in __GameObjects)
-                visual_object.Update();
+                foreach (var visual_object in __GameObjects)
+                    visual_object.Update();
+
+           
         }
     }
 }

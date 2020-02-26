@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace Asterooid
 {
-    public abstract class VisualObject
+     class VisualObject
     {
         protected Point _Position;
         protected Point _Direction;
         protected Size _Size;
+       
 
-
-        protected VisualObject(Point Position, Point Direction, Size Size)
+        public VisualObject(Point Position, Point Direction, Size Size)
         {
             _Position = Position;
             _Direction = Direction;
             _Size = Size;
         }
         public virtual void Draw(Graphics g)
-        {
-            g.DrawEllipse(Pens.Red,
+        { 
+            g.DrawEllipse(Pens.White,
                 _Position.X, _Position.Y,
                 _Size.Width, _Size.Width);
         }
