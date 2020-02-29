@@ -9,11 +9,11 @@ namespace Asterooid
 {
      class ImageObject : VisualObject
     {
-        private Image Image;
+        private Image _Image;
         public ImageObject(Point Position, Point Direction, Size Size, Image Image)
             : base(Position, Direction, Size)
         {
-            Image = Image;
+            _Image = Image;
         }
     }
 }
